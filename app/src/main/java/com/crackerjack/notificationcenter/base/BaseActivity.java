@@ -271,13 +271,6 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
         return mTelephonyManager.getDeviceId();
     }
 
-    public int getEngineerID(){
-        return Hawk.get(Constants.ENGINEER_ID);
-    }
-
-    public String getType(){
-        return Hawk.get(Constants.TYPE);
-    }
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
