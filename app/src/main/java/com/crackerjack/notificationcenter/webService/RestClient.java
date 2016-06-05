@@ -1,73 +1,64 @@
 package com.crackerjack.notificationcenter.webService;
 
+import com.crackerjack.notificationcenter.BuildConfig;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.squareup.okhttp.OkHttpClient;
 
 import java.util.concurrent.TimeUnit;
 
-import retrofit.RequestInterceptor;
-import retrofit.RestAdapter;
-import retrofit.client.OkClient;
-import retrofit.converter.GsonConverter;
-import servify.consumer.android.BuildConfig;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by yash on 05/11/15.
+ * Created by pratik on 05/6/16.
  */
-
 public class RestClient {
+
 
     public static final RestClient instance = new RestClient();
 
     private ApiService apiService;
 
-    //Staging
-//    public static final String API_BASE_URL = "http://staging.servify.in:5000/api/v1";
-
-    //Demo
-//    public static final String API_BASE_URL = "http://staging.servify.in:5002/api/v1";
-
-    public static final String API_BASE_URL = "http://172.21.3.185:5000/api/v1";
-
-
-    //Production
-//    public static final String API_BASE_URL = "http://production.servify.in:5000/api/v1";
-//    public static final String API_BASE_URL = "http://production.servify.in:8080/api/v3";
-//    public static final String API_BASE_URL = "https://node.servify.in/consumer/api/v3";
+    public static String BASE_URL = "";
 
     public RestClient() {
 
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+        Gson gson = new Gson();
 
-        final OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient.setReadTimeout(60, TimeUnit.SECONDS);
-        okHttpClient.setConnectTimeout(60, TimeUnit.SECONDS);
+        okhttp3.OkHttpClient.Builder clientBuilder = new okhttp3.OkHttpClient.Builder();
+        clientBuilder.connectTimeout(45,TimeUnit.SECONDS).readTimeout(45,TimeUnit.SECONDS).writeTimeout(45,TimeUnit.SECONDS);
 
-        RestAdapter restAdapter = new RestAdapter.Builder()
-                .setLogLevel(RestAdapter.LogLevel.FULL)
-                .setRequestInterceptor(requestInterceptor)
-                .setEndpoint(API_BASE_URL)
-                .setConverter(new GsonConverter(gson))
-                .setClient(new OkClient(okHttpClient))
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+
+        if (BuildConfig.DEBUG) {
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+            BASE_URL = "http://192.168.1.64:80001/api/v1/";
+
+        } else {
+            interceptor.setLevel(HttpLoggingInterceptor.Level.NONE);
+
+        }
+
+
+
+        okhttp3.OkHttpClient client = clientBuilder.addInterceptor(interceptor).build();
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .client(client)
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
-        apiService = restAdapter.create(ApiService.class);
+        apiService = retrofit.create(ApiService.class);
     }
-
-    RequestInterceptor requestInterceptor = new RequestInterceptor() {
-        @Override
-        public void intercept(RequestFacade request) {
-
-//            request.addHeader("Content-Type", "application/json");
-            request.addHeader("DeviceType",  "Android");
-            request.addHeader("Version", ""+BuildConfig.VERSION_CODE);
-            request.addHeader("App", "Servify");
-        }
-    };
-
 
     public ApiService getApiService() {
         return apiService;
     }
+
+
 }
