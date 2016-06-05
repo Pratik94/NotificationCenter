@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    
+    <RelativeLayout
+        android:id="@+id/rlProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:paddingEnd="@dimen/margin_large"
+        android:paddingLeft="@dimen/margin_xlarge"
+        android:paddingRight="@dimen/margin_large"
+        android:paddingStart="@dimen/margin_large">
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/presence_busy" />
+
+        <TextView
+            android:id="@+id/tvProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivProfile"
+            android:paddingBottom="@dimen/margin_large"
+            android:paddingEnd="@dimen/margin_large"
+            android:paddingLeft="@dimen/margin_large"
+            android:paddingRight="@dimen/margin_large"
+            android:paddingStart="@dimen/margin_large"
+            android:paddingTop="@dimen/margin_large"
+            android:text="@string/my_profile"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_normal"
+        android:paddingEnd="@dimen/margin_large"
+        android:paddingLeft="@dimen/margin_xlarge"
+        android:paddingRight="@dimen/margin_large"
+        android:paddingStart="@dimen/margin_large">
+
+        <ImageView
+            android:id="@+id/ivLogout"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/presence_busy" />
+
+        <TextView
+            android:id="@+id/tvLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivLogout"
+            android:paddingBottom="@dimen/margin_large"
+            android:paddingEnd="@dimen/margin_large"
+            android:paddingLeft="@dimen/margin_large"
+            android:paddingRight="@dimen/margin_large"
+            android:paddingStart="@dimen/margin_large"
+            android:paddingTop="@dimen/margin_large"
+            android:text="@string/logout"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -3,4 +3,51 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="whiteTranslucent">#DEFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="bg_blue">#e6f2fd</color>
+
+    <color name="authorizedGreen">#00cd5e</color>
+    <color name="separator">#d6dbdf</color>
+    <color name="repairedGreen">#42bd41</color>
+    <color name="colorServifyHighlight">#d1cfdc</color>
+    <color name="slotDisabledBg">#F8F8FA</color>
+    <color name="slotDisabledText">#dfdfe4</color>
+    <color name="issueTag">#ECF2FD</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="gray_Highlight">#939393</color>
+    <color name="divider_gray">#AAe2e2e2</color>
+    <color name="dark_gray">#434343</color>
+    <color name="lightLavendar">#eaf1ff</color>
+    <color name="darkLavender">#E0EAFD</color>
+    <color name="lavender">#3B3072</color>
+    <color name="skyBlue">#17BAF1</color>
+    <color name="lightSkyblue">#F2FBFE</color>
+    <color name="darkSkyblue">#E1F6FD</color>
+    <color name="lightToday">#f2fbfe</color>
+    <color name="servify_yellow">#FFD100</color>
+    <color name="servify_dark_yello">#EEC301</color>
+    <color name="installationColor">#00B5F1</color>
+    <color name="DemoColor">#6E6EAD</color>
+    <color name="BuyBackColor">#50CF03</color>
+
+
+    <!--Consumer App Color Start-->
+
+    <color name="PurpleLight">#db4c10c1</color>
+    <color name="AccentText">#FFFFFF</color> <!--Follow Base Color-->
+    <color name="GeneralText">@color/dark_gray</color>
+    <color name="ClickableText">@color/colorPrimary</color>
+    <color name="BottomBar">#f9f8fd</color>
+    <color name="black_overlay">#66000000</color>
+
+
+    <color name="colorServifyAccent">@color/colorPrimary</color>
+    <color name="colorServifyAccentText">@color/white</color>
+
+    <!--Consumer App Color End-->
+
 </resources>
