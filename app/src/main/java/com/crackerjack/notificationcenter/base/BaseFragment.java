@@ -7,15 +7,13 @@ import android.content.IntentSender;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.transition.Transition;
-import android.transition.TransitionInflater;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.crackerjack.notificationcenter.utils.Constants;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -31,8 +29,7 @@ import com.orhanobut.hawk.Hawk;
 import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
-import servify.associate.android.engineer.main.HomeFragment;
-import servify.associate.android.utils.Constants;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,27 +73,6 @@ public abstract class BaseFragment extends Fragment implements GoogleApiClient.C
         context = getActivity();
      //   service = RestClient.instance.getApiService();
         gson = new Gson();
-
-        setFragmentTransition();
-    }
-
-
-    public void setFragmentTransition() {
-        //Fragment transitions
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // Inflate transitions to apply
-            HomeFragment homeFragment = new HomeFragment();
-            Transition enterTransform = TransitionInflater.from(context).
-                    inflateTransition(android.R.transition.fade);
-
-            Transition exitTransform = TransitionInflater.from(context).
-                    inflateTransition(android.R.transition.fade);
-
-            // Setup transition on  fragment
-            homeFragment.setSharedElementReturnTransition(enterTransform);
-            homeFragment.setReenterTransition(exitTransform);
-            homeFragment.setExitTransition(exitTransform);
-        }
 
     }
 

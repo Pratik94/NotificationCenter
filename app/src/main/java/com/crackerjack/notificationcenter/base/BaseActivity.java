@@ -25,6 +25,9 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.crackerjack.notificationcenter.R;
+import com.crackerjack.notificationcenter.utils.DialogClick;
+import com.crackerjack.notificationcenter.utils.Utility;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -36,19 +39,13 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.gson.Gson;
-import com.orhanobut.hawk.Hawk;
 import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
-import servify.associate.android.R;
-import servify.associate.android.engineer.model.ApiExecutionModel;
-import servify.associate.android.utils.Constants;
-import servify.associate.android.utils.ServifyDialogClick;
-import servify.associate.android.utils.Utility;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
- * Created by Ashish on 01/03/16.
+ * Created by Pratik on 05/06/16.
  */
 public class BaseActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
@@ -58,20 +55,15 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
     protected Context context;
     protected Gson gson;
     private GoogleApiClient googleApiClient;
-    protected ApiExecutionModel apiExecutionModel;
     protected CoordinatorLayout Clayout;
     protected RelativeLayout baseLayout;
     protected Toolbar baseToolbar;
-
-    //  public Servify servify = Servify.getSharedInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
         gson = new Gson();
-        apiExecutionModel = new ApiExecutionModel(context);
-
     }
 
     @Override
@@ -120,7 +112,6 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     protected void onPause() {
         super.onPause();
-        //   Utility.getInstance().dismissProgress();
     }
 
     public boolean isNetworkOnline() {
@@ -151,7 +142,7 @@ public class BaseActivity extends AppCompatActivity implements GoogleApiClient.C
 
     public void showNetworkDialog(){
         if (!isNetworkOnline()) {
-            Utility.getInstance().showServifyDialog(context, android.R.drawable.ic_menu_report_image, false,new ServifyDialogClick() {
+            Utility.getInstance().showServifyDialog(context, android.R.drawable.ic_menu_report_image, false,new DialogClick() {
 
                 @Override
                 public void btnClickYes() {

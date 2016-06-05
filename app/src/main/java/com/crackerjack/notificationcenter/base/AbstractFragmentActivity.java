@@ -10,7 +10,7 @@ import com.orhanobut.logger.Logger;
 import butterknife.ButterKnife;
 
 /**
- * Created by pratik on 08/03/16.
+ * Created by pratik on 05/06/16.
  */
 public abstract class AbstractFragmentActivity extends BaseActivity implements BaseFragment.FragmentTransacListener, BaseFragment.FragmentAttachListener{
 

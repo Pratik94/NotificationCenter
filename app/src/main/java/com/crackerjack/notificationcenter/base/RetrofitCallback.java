@@ -11,7 +11,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by Ashish on 20/04/16.
+ * Created by Pratik on 05/06/16.
  */
 public abstract class RetrofitCallback<T> implements Callback<T> {
 
