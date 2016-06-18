@@ -80,9 +80,8 @@ public class MainActivity extends AbstractFragmentActivity {
 
     public void setUpViewPager(){
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-       /* adapter.addFragment(DeviceWarrantyFragment.newInstance(activeJobResponse),"Job in Repair");
-        adapter.addFragment(JobDetailsFragment.newInstance(activeJobResponse), "Job Details");
-       */
+        adapter.addFragment(NewJobFragment.newInstance(),"New Jobs");
+        adapter.addFragment(QuotesFragment.newInstance(), "Quotes");
         viewPager.setAdapter(adapter);
     }
 
