@@ -2,6 +2,7 @@ package com.crackerjack.notificationcenter.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
@@ -15,6 +16,7 @@ public class SplashActivity extends BaseActivity {
 
     private static final String TAG = "Splash Screen";
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +25,21 @@ public class SplashActivity extends BaseActivity {
 
         baseToolbar.setVisibility(View.GONE);
 
-        Intent intent = new Intent(context,MainActivity.class);
-        startActivity(intent);
-        finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(context,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },2000);
     }
 
     private boolean checkPlayServices() {

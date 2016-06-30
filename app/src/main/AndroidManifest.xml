@@ -54,7 +54,6 @@
         android:icon="@mipmap/ic_launcher"
         android:hardwareAccelerated="true"
         android:label="@string/app_name"
-        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".main.MainActivity"
@@ -62,7 +61,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".main.SplashActivity"
-            android:label=""
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

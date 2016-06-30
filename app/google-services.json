@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "356255276347",
+    "firebase_url": "https://my-projects-938e6.firebaseio.com",
+    "project_id": "my-projects-938e6",
+    "storage_bucket": "my-projects-938e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356255276347:android:dd9f1c8380e1701a",
+        "android_client_info": {
+          "package_name": "com.crackerjack.notificationcenter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356255276347-6lvggvo2cceh896buo6pd3fmn9e1f5gt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV258I2-y4WX9hhw8zg6qsc6pDiHGOQO8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

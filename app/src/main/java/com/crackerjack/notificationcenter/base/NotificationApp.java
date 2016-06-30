@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.crackerjack.notificationcenter.BuildConfig;
+import com.crackerjack.notificationcenter.R;
+import com.firebase.client.Firebase;
 import com.orhanobut.hawk.Hawk;
 import com.orhanobut.hawk.HawkBuilder;
 import com.orhanobut.logger.LogLevel;
@@ -31,6 +33,8 @@ public class NotificationApp extends Application {
                 .build()
         );
 
+        Firebase.setAndroidContext(this);
+
         Hawk.init(this)
                 .setStorage(HawkBuilder.newSharedPrefStorage(this))
                 .setLogLevel(com.orhanobut.hawk.LogLevel.NONE)
@@ -38,10 +42,10 @@ public class NotificationApp extends Application {
                 .build();
 
         if (BuildConfig.DEBUG) {
-            Logger.init("SERVIFY XPERT").logLevel(LogLevel.FULL);
+            Logger.init(getString(R.string.app_name)).logLevel(LogLevel.FULL);
 
         } else {
-            Logger.init("SERVIFY XPERT")
+            Logger.init(getString(R.string.app_name))
                     .logLevel(LogLevel.NONE);
         }
 
