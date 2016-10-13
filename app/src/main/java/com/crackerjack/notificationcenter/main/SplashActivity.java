@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.crackerjack.notificationcenter.R;
 import com.crackerjack.notificationcenter.base.BaseActivity;
-import com.crackerjack.notificationcenter.gcm.RegistrationIntentService;
+import com.crackerjack.notificationcenter.fcm.RegistrationIntentService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 

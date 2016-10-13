@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.crackerjack.notificationcenter.utils.Constants;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -25,7 +24,6 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.gson.Gson;
-import com.orhanobut.hawk.Hawk;
 import com.orhanobut.logger.Logger;
 
 import butterknife.ButterKnife;
@@ -149,14 +147,6 @@ public abstract class BaseFragment extends Fragment implements GoogleApiClient.C
             return false;
         }
         return status;
-    }
-    public int getEngineerID(){
-        return Hawk.get(Constants.ENGINEER_ID);
-    }
-
-
-    public String getType(){
-        return Hawk.get(Constants.TYPE);
     }
 
     public Boolean checkGps() {
